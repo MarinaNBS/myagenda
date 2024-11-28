@@ -12,7 +12,7 @@ require "faker"
 #   end
 User.destroy_all
 Event.destroy_all
-
+  User.create!(username: "Marina", email:"marina@exemple.com", password: "123456")
   10.times do
     User.create!(username: Faker::Name.first_name, email:"#{Faker::Name.first_name}@exemple.com", password: "123456")
   end
