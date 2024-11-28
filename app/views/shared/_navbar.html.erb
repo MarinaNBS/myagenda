@@ -2,33 +2,45 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-</a>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Messages</a>
-          </li>
-          <li class="nav-item dropdown">
-            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="<%= destroy_user_session_path %>"
-                data-turbo-confirm="Are you sure you want to logout?">
-                Log out
-              </a>
 
-            </div>
-          </li>
-          <!--li class="nav-item"-->
-          <!--/li-->
+          <% if user_signed_in? %>
+           <li class="nav-item active">
+             <%= link_to "Home", root_path, class: "nav-link" %>
+             <%= link_to "Log out", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
+           </li>
+           <li class="nav-item">
+             <%#= link_to "New Event", , class: "nav-link" %>
+           </li>
+            <li class="nav-item dropdown ">
+
+              <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# if current_user.photo.attached? %>
+               <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+              <%# else %>
+               <%#= image_tag "https://res.cloudinary.com/dclozlnfy/image/upload/v1693242201/360_F_187104027_8i2JbFDBB5jB7R65Ce464yRs4gfNbR3Z_cpcsbf.jpg",
+               class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%# end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+               <%#= link_to "My Calendar", , class: "dropdown-item" %>
+               <%#= link_to "Add a family", , class: "dropdown-item" %>
+               <%= link_to "Log out", destroy_user_session_path , class: "dropdown-item", data: {turbo_method: :delete} %>
+              </div>
+           </li>
+
+          <% else %>
+           <!--li class="nav-item"-->
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+
+           <!--/li-->
+          <% end %>
       </ul>
     </div>
   </div>
