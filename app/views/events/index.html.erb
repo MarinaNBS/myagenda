@@ -1,0 +1,16 @@
+
+  <div class="container">
+    <ul>
+      <% @events.each do |event| %>
+        <%= event.title%>
+        +<br>
+        <%= event.start_date%> - <%= event.end_date%>
+        <br>
+        <%= event.start_time%> - <%= event.end_time%>
+        <br>
+        <%= event.notes%>
+        <br>
+      <%end%>
+    </ul>
+    its working 🥳
+  </div>

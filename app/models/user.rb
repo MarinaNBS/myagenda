@@ -5,8 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :username, :email, :password, presence: true
+  validates :username, :email, presence: true
   #has_one_attached :photo
-  has_many :events
+  has_many :events, dependent: :destroy
   #has_one :calendar
 end
