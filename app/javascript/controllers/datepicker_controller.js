@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = [ "startDate", "endDate" ]
   connect() {
     flatpickr(this.startDateTarget, {
-              enableDate: true,
+              enableDate: today
     })
     flatpickr(this.endDateTarget, {})
   }
