@@ -1,14 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
-import flatpickr from "datepicker";
+import flatpickr from "flatpickr";
+console.log ("It's working")
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  // Inform the controller that it has two targets in the form, which are our inputs
   static targets = [ "startDate", "endDate" ]
-
   connect() {
-    console.log ("It's working")
-    flatpickr(this.startDateTarget, {})
+    flatpickr(this.startDateTarget, {
+              enableDate: true,
+    })
     flatpickr(this.endDateTarget, {})
   }
 }
