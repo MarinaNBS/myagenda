@@ -4,7 +4,7 @@
         <div class="container">
           <% @events.each do |event| %>
             <%= event.title%>
-            +<br>
+            <br>
             <%= event.start_date%> - <%= event.end_date%>
             <br>
             <%= event.start_time%> - <%= event.end_time%>
@@ -40,8 +40,10 @@
                             <div class="row">
                                   <div class="container">
                                     <%= simple_form_for @event, data: { controller: 'datepicker' } do |f| %>
-                                      <%= f.input :start_date, as: :date, input_html: { data: { flatpickr_target: "startDate" } } %>
-                                      <%= f.input :end_date, as: :date, input_html: { data: { flatpickr_target: "endDate" } } %>
+                                      <%= f.input :title %>
+                                      <%= f.input :start_date, as: :string, input_html: { class: "form-control custom-input", type: "text", data: { flatpickr_target: "startDate" } } %>
+                                      <%= f.input :end_date, as: :string, input_html: { class: "form-control custom-input",type: "text", data: { flatpickr_target: "startDate" } } %>
+                                      <%= f.input :notes %>
                                       <%= f.submit 'Save' %>
                                     <% end %>
                                   </div>

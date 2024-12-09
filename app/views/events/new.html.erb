@@ -8,9 +8,9 @@
             <% @event.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
             <% end %>
-            <%= f.input :name %>
-            <%= f.input :start_date, as: :string, input_html: { data: { flatpickrnew_target: "startDate" } } %>
-            <%= f.input :end_date, as: :string, input_html: { data: { flatpickrnew_target: "endDate" } } %>
+            <%= f.input :title %>
+            <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
+            <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
             <%= f.input :notes %>
             <%#= f.input :img_url %>
             <%#= f.input :photo, as: :file %>
