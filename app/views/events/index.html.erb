@@ -41,8 +41,8 @@
                                   <div class="container">
                                     <%= simple_form_for @event, data: { controller: 'datepicker' } do |f| %>
                                       <%= f.input :title %>
-                                      <%= f.input :start_date, as: :string, input_html: { class: "form-control custom-input", type: "text", data: { flatpickr_target: "startDate" } } %>
-                                      <%= f.input :end_date, as: :string, input_html: { class: "form-control custom-input",type: "text", data: { flatpickr_target: "startDate" } } %>
+                                      <%= f.input :start_date, label: false, as: :string, input_html: { class: "form-label", type: "text", data: { controller: "datepicker", datepicker_target: "startDate" }, id: 'start-date' } %>
+                                      <%= f.input :end_date, label: false, as: :string, input_html: { class: "form-label", type: "text", data: { flatpickr_target: "endDate" }, id: 'end-date' } %>
                                       <%= f.input :notes %>
                                       <%= f.submit 'Save' %>
                                     <% end %>
